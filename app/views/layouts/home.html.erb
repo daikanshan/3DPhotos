@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3DTryOn</title>
+  <%= stylesheet_link_tag  'home', media: 'all'  %>
+  <%= stylesheet_link_tag  params[:controller] %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+<%= javascript_include_tag params[:controller] %>
+</html>

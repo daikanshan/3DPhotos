@@ -1,0 +1,94 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+cn:
+  date:
+    month_names: [~, 一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月]
+    order:
+      - year
+      - month
+      - day
+  ckeditor:
+    buttons:
+      upload: 上传
+    confirm_delete: 确认删除吗？
+  activerecord:
+    models:
+      index/student: 学生
+      manage/student: 学生
+
+    attributes:
+      index/student:
+        num: 学号
+        name: 姓名
+        password: 密码
+        password_confirmation: ""
+        desc: 描述
+        skills: 技能
+      manage/admin:
+        user_name: '用户名'
+        real_name: '真实姓名'
+        password: '密码'
+      manage/post:
+        title: '标题'
+        content: '内容'
+        is_top: '是否置顶'
+        is_hide: '是否隐藏'
+        valid_from: '通过时间'
+        created_at: '创建时间'
+        updated_at: '最后修改时间'
+      manage/student:
+        num: 学号
+        name: 姓名
+        password: 密码
+        password_confirmation: ''
+
+
+    errors:
+      template:
+        header:
+          one:   "你提交的表单中有1个错误需要修正"
+          other: "你提交的表单中有%{count}个错误需要修正"
+        body:    "以下是发生错误的表单项"
+      messages:
+        blank: "不能为空"
+        too_short: "长度不足%{count}字"
+        too_long: "长度不能大于%{count}字"
+        taken: "已经被使用过"
+        invalid: "格式不正确"
+        not_a_number: "不是一个数字"
+        less_than_or_equal_to: "应当小于或等于%{count}"
+        greater_than_or_equal_to: "应当大于或等于%{count}"
+        inclusion: "不是一个有效的值"
+        not_an_integer: "不是一个整数"
+
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "末页 &raquo;"
+      previous: "&lsaquo; 前一页"
+      next: "后一页 &rsaquo;"
+
+  helpers:
+    submit:
+      create: "添加%{model}信息"
+      update: "更新%{model}信息"
+  confirm_delete: 确认删除？

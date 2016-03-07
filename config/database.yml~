@@ -10,7 +10,6 @@ development:
   username: root
   password: root
 
-
 test:
   adapter: sqlite3
   pool: 5

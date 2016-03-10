@@ -6,6 +6,7 @@
     <script type="text/javascript" src="../libs/three.min.js"></script>
     <script type="text/javascript" src="../libs/loaders/OBJLoader.js"></script>
 
+    <script type="text/javascript" src="../libs/OrbitControls.js"></script>
     <script type="text/javascript" src="../libs/stats.js"></script>
     <script type="text/javascript" src="../libs/dat.gui.js"></script>
     <style>
@@ -32,9 +33,13 @@
         webGLRenderer.setSize(window.innerWidth,window.innerHeight);
         webGLRenderer.shadowMapEnabled = true;
 
-        camera.position.set(130,40,50);
-        camera.lookAt(new THREE.Vector3(0,30,0));
+        camera.position.set(-300,300,300);
+        camera.lookAt(new THREE.Vector3(0,0,0));
         scene.add(camera);
+
+        var orbitControls = new THREE.OrbitControls(camera);
+        orbitControls.autoRotate = true;
+        var clock = new THREE.Clock();
 
         var spotLight = new THREE.DirectionalLight(0xffffff);
         spotLight.position.set(30,40,50);
@@ -72,10 +77,13 @@
         function render(){
             stats.update();
 
-            if(mesh){
-                mesh.rotation.y += 0.006;
+            var delta = clock.getDelta();
+            orbitControls.update();
+
+//            if(mesh){
+//                mesh.rotation.y += 0.006;
 //                mesh.rotation.x += 0.006;
-            }
+//            }
 
             requestAnimationFrame(render);
 

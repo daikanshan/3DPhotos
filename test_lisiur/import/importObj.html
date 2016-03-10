@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../libs/three.min.js"></script>
+    <script type="text/javascript" src="../libs/loaders/OBJLoader.js"></script>
+
+    <script type="text/javascript" src="../libs/stats.js"></script>
+    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="stats-output"></div>
+<div id="webgl-output"></div>
+
+<script type="text/javascript">
+    function init(){
+        var stats = initStats();
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(45,
+            window.innerWidth / window.innerHeight,
+            0.1,1000);
+        var webGLRenderer = new THREE.WebGLRenderer();
+        webGLRenderer.setClearColor(new THREE.Color(0xaaaaff,1.0));
+        webGLRenderer.setSize(window.innerWidth,window.innerHeight);
+        webGLRenderer.shadowMapEnabled = true;
+
+        camera.position.set(130,40,50);
+        camera.lookAt(new THREE.Vector3(0,30,0));
+        scene.add(camera);
+
+        var spotLight = new THREE.DirectionalLight(0xffffff);
+        spotLight.position.set(30,40,50);
+        spotLight.intensity = 1;
+        scene.add(spotLight);
+
+        document.getElementById("webgl-output").appendChild(webGLRenderer.domElement);
+
+        var step = 0;
+
+        var controls = new function(){
+
+        };
+
+        var gui = new dat.GUI();
+        var mesh;
+
+        var loader = new THREE.OBJLoader();
+        loader.load('../assets/file.obj',function(loadedMesh){
+            var material = new THREE.MeshLambertMaterial({color:0xcccccc});
+
+            loadedMesh.children.forEach(function(child){
+                child.material = material;
+                child.geometry.computeFaceNormals();
+                child.geometry.computeVertexNormals();
+            });
+
+            mesh = loadedMesh;
+            loadedMesh.scale.set(5,5,5);
+            scene.add(loadedMesh);
+        });
+
+        render();
+
+        function render(){
+            stats.update();
+
+            if(mesh){
+                mesh.rotation.y += 0.006;
+//                mesh.rotation.x += 0.006;
+            }
+
+            requestAnimationFrame(render);
+
+            webGLRenderer.render(scene,camera);
+        }
+
+        function initStats(){
+            var stats = new Stats();
+            stats.setMode(0);
+
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.left = "0px";
+            stats.domElement.style.top = "0px";
+
+            document.getElementById("stats-output").appendChild(stats.domElement);
+
+            return stats;
+        }
+    }
+    window.onload = init();
+</script>
+</body>
+</html>

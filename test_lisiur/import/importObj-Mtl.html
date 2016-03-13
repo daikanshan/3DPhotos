@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../libs/three.min.js"></script>
+    <script type="text/javascript" src="../libs/loaders/OBJLoader.js"></script>
+    <script type="text/javascript" src="../libs/loaders/MTLLoader.js"></script>
+
+    <script type="text/javascript" src="../libs/OrbitControls.js"></script>
+    <script type="text/javascript" src="../libs/stats.js"></script>
+    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="stats-output"></div>
+<div id="webgl-output"></div>
+
+<script type="text/javascript">
+    function init(){
+        var stats = initStats();
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(45,
+                window.innerWidth / window.innerHeight,
+                0.1,1000);
+        var webGLRenderer = new THREE.WebGLRenderer();
+        webGLRenderer.setClearColor(new THREE.Color(0xaaaaff,1.0));
+        webGLRenderer.setSize(window.innerWidth,window.innerHeight);
+        webGLRenderer.shadowMapEnabled = true;
+
+        camera.position.set(-300,300,300);
+        camera.lookAt(new THREE.Vector3(0,0,0));
+        scene.add(camera);
+
+        var orbitControls = new THREE.OrbitControls(camera);
+        orbitControls.autoRotate = true;
+        var clock = new THREE.Clock();
+
+        var spotLight = new THREE.DirectionalLight(0xffffff);
+        spotLight.position.set(30,40,50);
+        spotLight.intensity = 1;
+        scene.add(spotLight);
+
+        document.getElementById("webgl-output").appendChild(webGLRenderer.domElement);
+
+        var step = 0;
+
+        var controls = new function(){
+
+        };
+
+        var gui = new dat.GUI();
+        var mesh;
+
+//        var onProgress = function ( xhr ) {
+//            if ( xhr.lengthComputable ) {
+//                var percentComplete = xhr.loaded / xhr.total * 100;
+//                console.log( Math.round(percentComplete, 2) + '% downloaded' );
+//            }
+//        };
+//
+//        var onError = function ( xhr ) { };
+        var loader = new THREE.MTLLoader();
+        loader.load('../assets/hat/hat.mtl',function(materials){
+            materials.preload();
+            var objLoader = new THREE.OBJLoader();
+            objLoader.setMaterials(materials);
+            objLoader.load('../assets/hat/hat.obj',function(object){
+                object.scale.set(1,1,1);
+                object.position.y = -95;
+                scene.add(object);
+            });
+        });
+
+        render();
+
+        function render(){
+            stats.update();
+
+            var delta = clock.getDelta();
+            orbitControls.update();
+
+//            if(mesh){
+//                mesh.rotation.y += 0.006;
+//                mesh.rotation.x += 0.006;
+//            }
+
+            requestAnimationFrame(render);
+
+            webGLRenderer.render(scene,camera);
+        }
+
+        function initStats(){
+            var stats = new Stats();
+            stats.setMode(0);
+
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.left = "0px";
+            stats.domElement.style.top = "0px";
+
+            document.getElementById("stats-output").appendChild(stats.domElement);
+
+            return stats;
+        }
+    }
+    window.onload = init();
+</script>
+</body>
+</html>

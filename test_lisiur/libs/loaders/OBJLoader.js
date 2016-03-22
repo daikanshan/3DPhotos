@@ -17,6 +17,7 @@ THREE.OBJLoader.prototype = {
 	load: function ( url, onLoad, onProgress, onError ) {
 
 		var scope = this;
+		console.log(this);
 
 		var loader = new THREE.XHRLoader( scope.manager );
 		loader.setPath( this.path );

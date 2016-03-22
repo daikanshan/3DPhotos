@@ -1,0 +1,26 @@
+
+nav:
+  -
+    text: 概览
+    icon: dashboard
+    path: home/index
+    controllers: home
+    actions: index
+  -
+    text: 相册
+    icon: th-large
+    path: albums/index
+    controllers: albums
+    actions: index,new,edit,show
+  -
+    text: 相片
+    icon: th-list
+    path: photos/index
+    controllers: photos
+    actions: index,new,edit,show
+  # -
+  #   text: 账户
+  #   icon: user
+  #   path: authors/index
+  #   controllers: authors
+  #   actions: index,edit,show,repassword

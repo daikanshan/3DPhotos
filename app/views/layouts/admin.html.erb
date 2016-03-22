@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>博客管理</title>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    params[:controller]%>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+  <nav id="nav-top">
+    <div id="logo">
+      <img src="/assets/logo.png"/>
+    </div>
+    <div id="search">
+      <form class="" role="search">
+        <div class="">
+          <input type="text" class="" placeholder="Search...">
+        </div>
+        <button type="submit" class="hidden">Submit</button>
+      </form>
+    </div>
+    <div id="admin">
+      <span><%= @login_user.name %></span>
+    </div>
+
+    <div id="menu-add">
+      <a href=<%= '/' %>>
+        <i class="glyphicon glyphicon-plus"></i>
+      </a>
+    </div>
+    <div id="menu-message">
+      <i class="glyphicon glyphicon-envelope"></i>
+    </div>
+    <div id="menu-login">
+      <%= link_to admin_logout_path,method: :delete do %>
+          <img src="/assets/logo.png"/>
+          <i class="glyphicon glyphicon-chevron-down"></i>
+      <% end %>
+    </div>
+  </nav>
+</div>
+<div id="side-nav">
+  <nav id="nav-side">
+    <ul class="">
+      <% @navs.each do |nav| %>
+          <li class=<%= is_current(nav[:args]) %>>
+            <a href="<%= url_for nav[:options] %>" class="link">
+              <i class="glyphicon glyphicon-<%= nav[:icon] %>"></i>
+              <span><%= nav[:text] %></span>
+            </a>
+          </li>
+      <% end %>
+    </ul>
+  </nav>
+
+</div>
+<div class="related-nav">
+    <%= render "related/"+params[:controller] %>
+</div>
+<div id="bodyer">
+  <% unless flash[:notice].nil? %>
+    <div class="alert alert-info">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% unless flash[:alert].nil? %>
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+  <div id="content">
+    <%= yield %>
+  </div>
+
+</div>
+<div id="footer"></div>
+<%= javascript_include_tag 'admin' %>
+<%= javascript_include_tag params[:controller] %>
+
+</body>
+
+</html>

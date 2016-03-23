@@ -4,7 +4,7 @@ class Admin::AlbumsController < AdminController
   # GET /admin/albums
   # GET /admin/albums.json
   def index
-    @admin_albums = Admin::Album.all
+    @admin_albums = @login_user.albums
   end
 
   # GET /admin/albums/1
@@ -25,7 +25,7 @@ class Admin::AlbumsController < AdminController
   # POST /admin/albums.json
   def create
     @admin_album = Admin::Album.new(admin_album_params)
-
+    @admin_album.user_id = @login_user.id
     respond_to do |format|
       if @admin_album.save
         format.html { redirect_to @admin_album, notice: 'Album was successfully created.' }

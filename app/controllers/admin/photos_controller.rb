@@ -1,10 +1,12 @@
 class Admin::PhotosController < AdminController
   before_action :set_admin_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_all_albums, only: [:new, :edit, :update, :create]
+
 
   # GET /admin/photos
   # GET /admin/photos.json
   def index
-    @admin_photos = Admin::Photo.all
+    @admin_photos = @login_user.photos
   end
 
   # GET /admin/photos/1
@@ -25,7 +27,7 @@ class Admin::PhotosController < AdminController
   # POST /admin/photos.json
   def create
     @admin_photo = Admin::Photo.new(admin_photo_params)
-
+    @admin_photo.user_id = @login_user.id
     respond_to do |format|
       if @admin_photo.save
         format.html { redirect_to @admin_photo, notice: 'Photo was successfully created.' }
@@ -67,6 +69,12 @@ class Admin::PhotosController < AdminController
       @admin_photo = Admin::Photo.find(params[:id])
     end
 
+    def set_all_albums
+
+      @all_albums = []
+      all_albums = @login_user.albums
+      all_albums.each {|t| @all_albums << [t.name,t.id]}
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_photo_params
       params.require(:admin_photo).permit(:name, :user_id, :img, :album_id)

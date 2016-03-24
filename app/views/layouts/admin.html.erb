@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>博客管理</title>
-  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <title>3D相册管理</title>
+  <%= stylesheet_link_tag    'admin', media: 'all' %>
   <%= stylesheet_link_tag    params[:controller]%>
 
   <%= csrf_meta_tags %>
@@ -35,7 +35,7 @@
     </div>
     <div id="menu-login">
       <%= link_to admin_logout_path,method: :delete do %>
-          <img src="/assets/logo.png"/>
+          <%= image_tag(@login_user.avatar_url(:thumb)) if @login_user.avatar? %>
           <i class="glyphicon glyphicon-chevron-down"></i>
       <% end %>
     </div>

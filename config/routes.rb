@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     get 'login' => 'session#new'
     post 'login' => 'session#create'
     delete 'logout' => 'session#destroy'
-    resources :users
+    resources :users,only:[:index,:edit,:update,:show]
+    get 'repassword' => 'users#repassword'
+    post 'repassword' => 'users#update_password'
     resources :albums
     resources :photos
   end

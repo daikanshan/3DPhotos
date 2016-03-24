@@ -18,9 +18,9 @@ nav:
     path: photos/index
     controllers: photos
     actions: index,new,edit,show
-  # -
-  #   text: 账户
-  #   icon: user
-  #   path: authors/index
-  #   controllers: authors
-  #   actions: index,edit,show,repassword
+  -
+    text: 账户
+    icon: user
+    path: users/index
+    controllers: users
+    actions: index,edit,show,repassword

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322111732) do
+ActiveRecord::Schema.define(version: 20160324101152) do
 
   create_table "admin_albums", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160322111732) do
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "avatar",          limit: 255
   end
 
 end

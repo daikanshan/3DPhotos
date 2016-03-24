@@ -30,7 +30,7 @@ class Admin::PhotosController < AdminController
     @admin_photo.user_id = @login_user.id
     respond_to do |format|
       if @admin_photo.save
-        format.html { redirect_to @admin_photo, notice: 'Photo was successfully created.' }
+        format.html { redirect_to admin_photos_url, notice: '上传成功.' }
         format.json { render :show, status: :created, location: @admin_photo }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::PhotosController < AdminController
   def update
     respond_to do |format|
       if @admin_photo.update(admin_photo_params)
-        format.html { redirect_to @admin_photo, notice: 'Photo was successfully updated.' }
+        format.html { redirect_to admin_photos_url, notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_photo }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::PhotosController < AdminController
   def destroy
     @admin_photo.destroy
     respond_to do |format|
-      format.html { redirect_to admin_photos_url, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to admin_photos_url, notice: '删除成功.' }
       format.json { head :no_content }
     end
   end

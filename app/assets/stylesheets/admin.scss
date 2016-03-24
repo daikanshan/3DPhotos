@@ -121,16 +121,21 @@ body{
       z-index: 1;
       cursor: pointer;
       position: absolute;
-      top:0;
+      top:0px;
+      bottom: 0px;
       right:0px;
+      padding-top: 5px;
+      padding-left: 10px;
       img{
-        height:60px;
-        width:80px;
+        border-radius: 50%;
+        height:50px;
+        width:50px;
       }
       i{
         display: inline;
         font-size: 10px;
-        margin-left: -10px;
+        color: #aaaaaa;
+        padding-left: 10px;
       }
       &:hover{
         background-color: #dddddd;
@@ -246,9 +251,6 @@ body{
         background-color: white;
         border: 1px solid #D1D1D1;
         border-radius: 5px;
-      }
-      .action{
-        margin-top: 20px;
       }
       .submit{
         border:1px solid #333333;

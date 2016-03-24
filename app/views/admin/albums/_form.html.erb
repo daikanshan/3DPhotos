@@ -1,29 +1,20 @@
 <%= form_for(@admin_album) do |f| %>
-  <% if @admin_album.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin_album.errors.count, "error") %> prohibited this admin_album from being saved:</h2>
+  <%= form_errors @admin_album %>
 
-      <ul>
-      <% @admin_album.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-group">
+    <%= f.label "相册名" %><br>
+    <%= f.text_field :name ,class:"form-control"%>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label "封面" %>
+    <%= image_tag(@admin_album.cover_url(:thumb)) if @admin_album.cover? %>
+    <%= f.file_field :cover %>
+    <%= f.hidden_field :cover_cache %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :cover %><br>
-    <%= f.text_field :cover %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group action">
+    <%= link_to '取消', admin_albums_path,class:"btn btn-default cancle" %>
+    <%= f.submit class:"btn btn-primary submit",id:"submit" %>
   </div>
 <% end %>

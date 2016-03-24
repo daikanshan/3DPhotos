@@ -1,0 +1,20 @@
+<%= form_for(@admin_album) do |f| %>
+  <%= form_errors @admin_album %>
+
+  <div class="form-group">
+    <%= f.label "相册名" %><br>
+    <%= f.text_field :name ,class:"form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "封面" %>
+    <%= image_tag(@admin_album.cover_url(:thumb)) if @admin_album.cover? %>
+    <%= f.file_field :cover %>
+    <%= f.hidden_field :cover_cache %>
+  </div>
+
+  <div class="form-group action">
+    <%= link_to '取消', admin_albums_path,class:"btn btn-default cancle" %>
+    <%= f.submit class:"btn btn-primary submit",id:"submit" %>
+  </div>
+<% end %>

@@ -63,6 +63,11 @@ GEM
     capistrano-rails (1.1.6)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     ckeditor (4.1.6)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -210,6 +215,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capistrano-rails
+  carrierwave
   ckeditor
   dalli
   icheck-rails
@@ -234,4 +240,4 @@ DEPENDENCIES
   vuejs-rails
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

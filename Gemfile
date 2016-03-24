@@ -50,7 +50,7 @@ gem 'dalli'
 gem 'bootstrap-datepicker-rails'
 
 # 处理文件上传的插件
-# gem 'carrierwave'
+gem 'carrierwave'
 # 处理Excel导入
 gem 'roo'
 # 富文本编辑器

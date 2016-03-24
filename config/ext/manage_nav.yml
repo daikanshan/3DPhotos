@@ -1,0 +1,26 @@
+
+nav:
+  -
+    text: 概览
+    icon: dashboard
+    path: index/index
+    controllers: index
+    actions: index
+  -
+    text: 用户
+    icon: user
+    path: authors/index
+    controllers: authors
+    actions: index,new,edit,show
+  -
+    text: 类别
+    icon: list-alt
+    path: article_types/index
+    controllers: article_types
+    actions: index,new,edit,show
+  -
+    text: 管理员
+    icon: user
+    path: users/index
+    controllers: users
+    actions: index,new,edit,show

@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
-  root 'home/home#index'
+
+  root 'admin/home#index'
   namespace :home do
   get 'home/index'
+  end
+
+  namespace :admin do
+    get '/' => "home#index"
+    get 'index/index'
+    get 'login' => 'session#new'
+    post 'login' => 'session#create'
+    delete 'logout' => 'session#destroy'
+    resources :users,only:[:index,:edit,:update,:show]
+    get 'repassword' => 'users#repassword'
+    post 'repassword' => 'users#update_password'
+    resources :albums
+    resources :photos
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

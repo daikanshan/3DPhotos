@@ -1,0 +1,14 @@
+
+<h1>我的相片</h1>
+
+<% @admin_photos.each do |admin_photo| %>
+  <div class="photos">
+    <div class="img">
+      <%= image_tag(admin_photo.img_url(:medium)) if admin_photo.img? %>
+    </div>
+    <div class="info">
+      <%= link_to "查看",admin_photo,method: :get ,class:"myBtn show" %>
+      <%= link_to "删除",admin_photo, method: :delete,data: { confirm: '确定?' },class:"myBtn delete" %>
+    </div>
+  </div>
+<% end %>

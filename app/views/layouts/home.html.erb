@@ -5,15 +5,137 @@
   <%= stylesheet_link_tag  'home', media: 'all'  %>
   <%= stylesheet_link_tag  params[:controller] %>
   <%= stylesheet_link_tag  'home/demo', media: 'all'  %>
+    <%= stylesheet_link_tag  'home/style-right', media: 'all'  %>
+  <noscript>
   <%= stylesheet_link_tag  'home/style', media: 'all'  %>
+
+  <%= stylesheet_link_tag  'home/5grid/core', media: 'all'  %>
+  <%= stylesheet_link_tag  'home/5grid/core-desktop', media: 'all'  %>
+  <%= stylesheet_link_tag  'home/5grid/core-1200px', media: 'all'  %>
+  <%= stylesheet_link_tag  'home/5grid/core-noscript', media: 'all'  %>
+  <%= stylesheet_link_tag  'home/style-desktop', media: 'all'  %>
+  <%= stylesheet_link_tag  'home/style-1200px', media: 'all'  %>
+  </noscript>
   <%= javascript_include_tag 'home/public' %>
+  <script src="/assets/home/5grid/init.js?use=mobile,desktop,1200px,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
   <!--[if lt IE 9]>
   <link rel="stylesheet" type="text/css" href="css/styleIE.css" />
   <![endif]-->
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <%= yield %>
+<body class="left-sidebar">
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Content -->
+    <div id="content" class="mobileUI-main-content">
+        <div id="content-inner">
+          <%= yield %>
+          <div class="pager">
+            <a href="#" class="button previous">Previous Page</a>
+            <div class="pages">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <span>&hellip;</span>
+                <a href="#">20</a>
+            </div>
+            <a href="#" class="button next">Next Page</a>
+        </div>
+    </div>
+  </div>
+  <div id="sidebar">
+      <!-- Logo -->
+      <div id="logo">
+          <h1 class="mobileUI-site-name">Photos</h1>
+      </div>
+
+      <!-- Nav -->
+      <nav id="nav" class="mobileUI-site-nav">
+          <ul>
+              <li class="current_page_item"><a href="#">最新动态</a></li>
+              <li><a href="#">Archives</a></li>
+              <li><a href="#">About Me</a></li>
+              <li><a href="#">Contact Me</a></li>
+          </ul>
+      </nav>
+
+      <!-- Search -->
+      <section class="is-search is-first">
+          <form method="post" action="#">
+              <input type="text" class="text" name="search" placeholder="Search" />
+          </form>
+      </section>
+
+      <!-- 日历，用表格实现 -->
+      <section class="is-calendar">
+              <div class="inner">
+                  <table>
+                      <caption>February 2013</caption>
+                      <thead>
+                          <tr>
+                              <th scope="col" title="Monday">M</th>
+                              <th scope="col" title="Tuesday">T</th>
+                              <th scope="col" title="Wednesday">W</th>
+                              <th scope="col" title="Thursday">T</th>
+                              <th scope="col" title="Friday">F</th>
+                              <th scope="col" title="Saturday">S</th>
+                              <th scope="col" title="Sunday">S</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td colspan="4" class="pad"><span>&nbsp;</span></td>
+                              <td><span>1</span></td>
+                              <td><span>2</span></td>
+                              <td><span>3</span></td>
+                          </tr>
+                          <tr>
+                              <td><span>4</span></td>
+                              <td><span>5</span></td>
+                              <td><a href="#">6</a></td>
+                              <td><span>7</span></td>
+                              <td><span>8</span></td>
+                              <td><span>9</span></td>
+                              <td><a href="#">10</a></td>
+                          </tr>
+                          <tr>
+                              <td><span>11</span></td>
+                              <td><span>12</span></td>
+                              <td><span>13</span></td>
+                              <td class="today"><a href="#">14</a></td>
+                              <td><span>15</span></td>
+                              <td><span>16</span></td>
+                              <td><span>17</span></td>
+                          </tr>
+                          <tr>
+                              <td><span>18</span></td>
+                              <td><span>19</span></td>
+                              <td><span>20</span></td>
+                              <td><span>21</span></td>
+                              <td><span>22</span></td>
+                              <td><a href="#">23</a></td>
+                              <td><span>24</span></td>
+                          </tr>
+                          <tr>
+                              <td><a href="#">25</a></td>
+                              <td><span>26</span></td>
+                              <td><span>27</span></td>
+                              <td><span>28</span></td>
+                              <td class="pad" colspan="3"><span>&nbsp;</span></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </section>
+
+      <!-- Copyright 的信息存到数据库里方便修改-->
+      <div id="copyright">
+          <p>
+              &copy; 2016 Lisur and fanfan.
+          </p>
+      </div>
+  </div>
 </body>
 <script type="text/javascript">
 $(function() {

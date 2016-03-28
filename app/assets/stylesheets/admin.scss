@@ -33,16 +33,17 @@ body{
     #logo{
       z-index: 1;
       cursor: pointer;
-      left:2px;
+      left:10px;
+      top:10px;
       position: absolute;
       img{
-        height:60px;
-        width:80px;
+        height:40px;
+        width:50px;
       }
     }
     #search{
       z-index: 2;
-      left:75px;
+      left:100px;
       position: absolute;
       width:auto;
       height:60px;
@@ -139,6 +140,39 @@ body{
       }
       &:hover{
         background-color: #dddddd;
+      }
+    }
+    .login_menu{
+      display: none;
+      position:absolute;
+      right:0;
+      top:60px;
+      text-align: center;
+      ul{
+        width:120px;
+        height:auto;
+        li{
+          height:40px;
+          width:100%;
+          line-height: 40px;
+          border-bottom: 1px solid #DDD;
+          border-left: 1px solid #DDD;
+          background-color: #F6F6F6;
+          &:hover{
+            background-color:#DDD;
+          }
+          a{
+            display: block;
+            width:100%;
+            color:gray;
+            &:hover{
+              color:gray;
+            }
+            i{
+              padding-right: 5px;
+            }
+          }
+        }
       }
     }
   }

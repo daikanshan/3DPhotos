@@ -11,7 +11,9 @@
 <div id="header">
   <nav id="nav-top">
     <div id="logo">
+      <%= link_to '/' do %>
       <img src="/assets/logo.png"/>
+      <% end %>
     </div>
     <div id="search">
       <form class="" role="search">
@@ -38,6 +40,35 @@
           <%= image_tag(@login_user.avatar_url(:thumb)) if @login_user.avatar? %>
           <i class="glyphicon glyphicon-chevron-down"></i>
       <% end %>
+    </div>
+    <div class="login_menu">
+      <ul>
+        <li>
+          <%= link_to admin_albums_path do %>
+            <i class="glyphicon glyphicon-th-large"></i>
+            相册
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_photos_path do %>
+            <i class="glyphicon glyphicon-th-list"></i>
+            相片
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_users_path do %>
+            <i class="glyphicon glyphicon-user"></i>
+            账户
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_logout_path,method: :delete do %>
+            <i class="glyphicon glyphicon-log-out"></i>
+            退出
+          <% end %>
+
+        </li>
+      </ul>
     </div>
   </nav>
 </div>

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'admin/home#index'
-  namespace :home do
-  get 'home/index'
+  root 'home/home#index'
+  scope :home do
+  get '/' => 'home/home#index'
+  get '/:username/:albumname' => 'home/home#show'
   end
 
   namespace :admin do
@@ -14,6 +15,11 @@ Rails.application.routes.draw do
     resources :users,only:[:index,:edit,:update,:show]
     get 'repassword' => 'users#repassword'
     post 'repassword' => 'users#update_password'
+    get 'upload/:name' => 'albums#upload_photo'
+    get 'upload_online/:name' => 'albums#upload_photo_online'
+    post 'uploading_online/:name' => 'albums#uploading_photo_online'
+    post 'upload' => 'albums#uploading_photo'
+    post 'remove_photo/:album/:photo' => 'albums#remove'
     resources :albums
     resources :photos
   end

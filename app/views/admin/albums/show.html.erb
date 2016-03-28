@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @admin_album.name %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @admin_album.user_id %>
-</p>
-
-<p>
-  <strong>Cover:</strong>
-  <%= @admin_album.cover %>
-</p>
-
-<%= link_to 'Edit', edit_admin_album_path(@admin_album) %> |
-<%= link_to 'Back', admin_albums_path %>
+<div class="add_photo item">
+  <%= link_to admin_upload_path+"/"+@admin_album.name do %>
+    <span class="glyphicon glyphicon-plus"></span>
+  <% end %>
+</div>
+<% @album_photos.each do |p| %>
+  <div class="photos item">
+    <div class="img">
+      <%= image_tag(p.img_url(:medium)) if p.img? %>
+    </div>
+    <div class="info">
+      <%= link_to "查看",p,method: :get ,class:"myBtn show" %>
+      <%= link_to "删除","/admin/remove_photo/#{@admin_album.id}/#{p.id}", method: :post,class:"myBtn delete" %>
+    </div>
+  </div>
+<% end %>

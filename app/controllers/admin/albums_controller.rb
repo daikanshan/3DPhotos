@@ -114,10 +114,10 @@ class Admin::AlbumsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_album_params
-      params.require(:admin_album).permit(:name, :user_id, :cover)
+      params.require(:admin_album).permit(:name, :user_id, :cover, :cover_cache)
     end
 
     def admin_photo_params
-      params.require(:admin_photo).permit(:name, :user_id, :img, :album_id)
+      params.require(:admin_photo).permit(:name, :user_id, :img, :album_id, :img_cache)
     end
 end

@@ -77,6 +77,6 @@ class Admin::PhotosController < AdminController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_photo_params
-      params.require(:admin_photo).permit(:name, :user_id, :img, :album_id)
+      params.require(:admin_photo).permit(:name, :user_id, :img, :album_id, :img_cache)
     end
 end

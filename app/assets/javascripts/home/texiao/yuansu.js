@@ -157,17 +157,23 @@ function init() {
 		element.appendChild( symbol );
 
 		img.addEventListener( 'click', function (event) {
-
+			// console.log(window.innerWidth);
+			var image=new Image();
 			show_img_div = document.createElement( 'div' );
 			var show_img = document.createElement('img');
 			show_img.src = table_img[this.value/5];
+			image.src = table_img[this.value/5];
+			var imgWidth=image.width;
+			var imgHeight=image.height;
 			show_img_div.appendChild(show_img);
 			document.body.appendChild(show_img_div);
 			show_img_div.style.position = "absolute";
+			show_img_div.style.overflow = "auto";
 			show_img_div.style.width = "100%";
+			show_img_div.style.backgroundColor = "rgba(0,0,0,0.8)";
 			show_img_div.style.textAlign = "center";
-			show_img.style.width = "80%";
-			show_img.style.height = "80%";
+			show_img.style.width = window.innerHeight*imgWidth/imgHeight+"px";
+			show_img.style.height = window.innerHeight+"px";
 			show_img_div.addEventListener( 'click', function ( event ) {
 				document.body.removeChild(show_img_div);
 			},false)

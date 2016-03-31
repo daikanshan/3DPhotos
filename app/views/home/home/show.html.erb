@@ -7,26 +7,21 @@
 <%= stylesheet_link_tag  'home/texiao/yuansu' %>
 </head>
 <body>
-<div id="container"></div>
-<div id="info">点击下方四个按钮切换特效，拖动鼠标查看不一样的视觉效果,滑动鼠标滚轮调整视野大小,鼠标右键移动模型</div>
-<div id="menu">
-<button id="table">TABLE</button>
-<button id="sphere">SPHERE</button>
-<button id="helix">HELIX</button>
-<button id="grid">GRID</button>
-</div>
+<%= render 'related/texiao/ring' %>
 
 <script>
+var table_img_large = [];
 var table_img_medium = [];
 var table_img = [];
 <% max = @photos.count %>
-<% for i in 0..118 do %>
+<% for i in 0..max-1 do %>
+table_img_large[<%= i %>] = "<%= @photos[i%max].img_url(:medium) %>"
 table_img_medium[<%= i %>] = "<%= @photos[i%max].img_url(:thumb) %>"
 table_img[<%= i %>] = "<%= @photos[i%max].img_url %>"
 <% end %>
 </script>
 
-<%= javascript_include_tag 'home/texiao/yuansu' %>
+<%= javascript_include_tag 'home/texiao/ring' %>
 <!-- <%= javascript_include_tag 'season/snow' %> -->
 </body>
 </html>

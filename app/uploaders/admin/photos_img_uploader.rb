@@ -33,11 +33,11 @@ class Admin::PhotosImgUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [50, 50]
+    process :resize_to_fill => [64,64]
   end
 
   version :medium do
-    process :resize_to_fill => [180, 111]
+    process :resize_to_fill => [128, 128]
   end
 
   version :scan do

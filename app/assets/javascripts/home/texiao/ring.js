@@ -46,6 +46,7 @@ function init(){
   scene.add(pointLight);
 
   $("#WebGL-output").append(renderer.domElement);
+  
   render();
 
   function render() {

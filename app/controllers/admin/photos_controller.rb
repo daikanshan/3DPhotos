@@ -7,6 +7,10 @@ class Admin::PhotosController < AdminController
   # GET /admin/photos.json
   def index
     @admin_photos = @login_user.photos
+    # respond_to do |format|
+    #   format.json { render :json => @admin_photos.collect { |p| p.to_jq_upload }.to_json }
+    # end
+    
   end
 
   # GET /admin/photos/1
@@ -26,15 +30,17 @@ class Admin::PhotosController < AdminController
   # POST /admin/photos
   # POST /admin/photos.json
   def create
-    @admin_photo = Admin::Photo.new(admin_photo_params)
-    @admin_photo.user_id = @login_user.id
+    user_id = @login_user.id
+    admin_photo_params.each do |p|
+      admin_photo = Admin::Photo.create(img:p,user_id:user_id)
+    end
     respond_to do |format|
-      if @admin_photo.save
-        format.html { redirect_to admin_photos_url, notice: '上传成功.' }
-        format.json { render :show, status: :created, location: @admin_photo }
+      if true
+        format.html { redirect_to new_admin_photo_url, notice: 'photos have been uploaded!'}
+        format.json { }
       else
         format.html { render :new }
-        format.json { render json: @admin_photo.errors, status: :unprocessable_entity }
+        format.json { render :json => [{:error => "custom_failure"}], :status => 304 }
       end
     end
   end
@@ -59,7 +65,7 @@ class Admin::PhotosController < AdminController
     @admin_photo.destroy
     respond_to do |format|
       format.html { redirect_to admin_photos_url, notice: '删除成功.' }
-      format.json { head :no_content }
+      format.json { render :json => true }
     end
   end
 
@@ -77,6 +83,6 @@ class Admin::PhotosController < AdminController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_photo_params
-      params.require(:admin_photo).permit(:name, :user_id, :img, :album_id, :img_cache)
+      params.require(:admin_photo_imgs)
     end
 end

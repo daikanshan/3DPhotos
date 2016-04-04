@@ -21,11 +21,6 @@ class Admin::AlbumsController < AdminController
     @admin_photo = Admin::Photo.new
   end
 
-  def upload_photo_online
-    @admin_album = @login_user.albums.find_by_name(params[:name])
-    @admin_photos = @login_user.photos.where(album_id:nil)
-  end
-
   def uploading_photo
     @admin_photo = Admin::Photo.new(admin_photo_params)
     @admin_photo.user_id = @login_user.id
@@ -39,6 +34,12 @@ class Admin::AlbumsController < AdminController
         format.json { render json: @admin_photo.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+
+  def upload_photo_online
+    @admin_album = @login_user.albums.find_by_name(params[:name])
+    @admin_photos = @login_user.photos.where(album_id:nil)
   end
 
   def uploading_photo_online
@@ -106,6 +107,7 @@ class Admin::AlbumsController < AdminController
     end
   end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_album

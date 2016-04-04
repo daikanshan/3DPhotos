@@ -2,7 +2,7 @@
   <li role="presentation"> <%= link_to "从本地上传" ,admin_upload_path+"/"+@admin_album.name %></li>
   <li role="presentation" class="active" > <%= link_to "从相片库上传" ,"/admin/upload_online/"+@admin_album.name  %></li>
 </ul>
-<% if !@admin_photo.nil? %>
+<% if !@admin_photos.nil? %>
   <%= form_tag "/admin/uploading_online/#{@admin_album.name}" do %>
   <ul class="choose_online">
     <% @admin_photos.each do |p| %>

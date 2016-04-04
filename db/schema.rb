@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324101152) do
+ActiveRecord::Schema.define(version: 20160404061124) do
 
   create_table "admin_albums", force: :cascade do |t|
     t.string   "name",       limit: 255

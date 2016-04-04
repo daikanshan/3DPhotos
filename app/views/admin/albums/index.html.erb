@@ -7,8 +7,8 @@
       <% end %>
     </div>
     <div class="info">
-      <%= link_to "设置",edit_admin_album_path(admin_album),method: :get ,class:"myBtn show" %>
-      <%= link_to "删除",admin_album, method: :delete,data: { confirm: '确定?' },class:"myBtn delete" %>
+      <%= link_to "设置",edit_admin_album_path(admin_album),method: :get ,class:"btn btn-inline btn-info del" %>
+      <%= link_to "删除",admin_album, method: :delete,data: { confirm: '确定?' },class:"btn btn-inline btn-danger del" %>
     </div>
   </div>
 <% end %>

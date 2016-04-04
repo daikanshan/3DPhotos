@@ -9,18 +9,20 @@
   height:auto;
   border: 1px solid #EEE;
   text-align: center;
+  box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
   .img{
+    border-radius: 8px;
     max-width: 200px;
     max-height: 200px;
   }
   .info{
-    .myBtn{
-      width:50%;
-      height:24px;
-      color:white;
-      text-align: center;
-      font-size: 13px;
-      line-height: 26px;
+    padding:0px;
+    padding-top: 1px;
+    .del{
+      width: 48%;
+      margin: 0px;
+      border-radius: 8px;
     }
     .show{
       float:left;
@@ -39,6 +41,7 @@
   height:133px;
   a{
     display: block;
+    margin:6px 0;
   }
   span{
     display: block;
@@ -49,24 +52,23 @@
 }
 .photos, .item{
   float:left;
+  box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.7);
   margin-right: 10px;
   margin-top: 20px;
   width:auto;
   height:auto;
   border: 1px solid #EEE;
   text-align: center;
+  border-radius: 8px;
   .img{
     max-width: 200px;
     max-height: 200px;
   }
   .info{
-    .myBtn{
-      width:50%;
-      height:24px;
-      color:white;
-      text-align: center;
-      font-size: 13px;
-      line-height: 26px;
+    padding-top: 1px;
+    .del{
+      width:48%;
+      border-radius: 8px;
     }
     .show{
       float:left;

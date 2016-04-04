@@ -4,7 +4,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body{
-  background: image_url("bgd_login.jpg");
+  background: image_url("bgd_login.jpg") 50% 50% / cover no-repeat fixed;
   background-size: cover;
 }
 .login_panel{
@@ -29,6 +29,8 @@ body{
     height:50px;
     border: 1px solid #DDDDDD;
     border-radius: 5px;
+    padding-left: 15px;
+    font-size: 20px
   }
   .form-submit{
     width:400px;

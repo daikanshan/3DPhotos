@@ -10,8 +10,8 @@
       <%= image_tag(p.img_url(:medium)) if p.img? %>
     </div>
     <div class="info">
-      <%= link_to "查看",p,method: :get ,class:"myBtn show" %>
-      <%= link_to "删除","/admin/remove_photo/#{@admin_album.id}/#{p.id}", method: :post,class:"myBtn delete" %>
+      <%= link_to "查看",p,method: :get ,class:"del btn btn-inline btn-info" %>
+      <%= link_to "删除","/admin/remove_photo/#{@admin_album.id}/#{p.id}",data: { confirm: '确定?' }, method: :post,class:"del btn btn-inline btn-danger" %>
     </div>
   </div>
 <% end %>

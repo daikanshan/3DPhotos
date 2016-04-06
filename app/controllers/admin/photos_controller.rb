@@ -1,6 +1,8 @@
 class Admin::PhotosController < AdminController
+  include ActionController::Live
   before_action :set_admin_photo, only: [:show, :edit, :update, :destroy]
   before_action :set_all_albums, only: [:new, :edit, :update, :create]
+  skip_before_action :check_login, only: [:upload_process]
 
 
   # GET /admin/photos
@@ -29,19 +31,27 @@ class Admin::PhotosController < AdminController
 
   # POST /admin/photos
   # POST /admin/photos.json
-  def create
+  def upload_process
+    session["process"] = 0 if session["process"].nil?
+    response.headers['Content-Type'] = 'text/event-stream'
+    response.stream.write "data: #{session["process"]}%\n\n"
+    sleep 2
+  ensure
+    response.stream.close
+  end
+
+  def upload
+    @errors = []
     user_id = @login_user.id
+    current_num = 0.0
+    totle_num = admin_photo_params.length
     admin_photo_params.each do |p|
-      admin_photo = Admin::Photo.create(img:p,user_id:user_id)
-    end
-    respond_to do |format|
-      if true
-        format.html { redirect_to new_admin_photo_url, notice: 'photos have been uploaded!'}
-        format.json { }
-      else
-        format.html { render :new }
-        format.json { render :json => [{:error => "custom_failure"}], :status => 304 }
+      current_num += 1
+      admin_photo = Admin::Photo.new(img:p,user_id:user_id)
+      if !admin_photo.save
+        @errors << admin_photo.errors
       end
+      session["process"] = (current_num/totle_num)*100
     end
   end
 

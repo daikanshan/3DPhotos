@@ -22,16 +22,24 @@ class Admin::AlbumsController < AdminController
   end
 
   def uploading_photo
-    @admin_photo = Admin::Photo.new(admin_photo_params)
-    @admin_photo.user_id = @login_user.id
+    @errors = []
+    album = @login_user.albums.find_by_name(params[:name])
+    redirect_to admin_albums_url if !album && return
+    admin_photo_params.each do |p|
+      photo = Admin::Photo.new(img:p,user_id:@login_user.id)
+      if photo.save
+        album.photos << photo
+      else
+        @errors << photo.errors
+      end
+    end
     respond_to do |format|
-      if @admin_photo.save
-        @admin_album = Admin::Album.find_by_id(admin_photo_params[:album_id])
-        format.html { redirect_to @admin_album, notice: '上传成功.' }
+      if @errors.empty?
+        format.html { redirect_to album, notice: '上传成功.' }
         format.json { render :show, status: :created, location: @admin_photo }
       else
         format.html { render :upload_photo }
-        format.json { render json: @admin_photo.errors, status: :unprocessable_entity }
+        format.json {  }
       end
     end
   end
@@ -120,6 +128,6 @@ class Admin::AlbumsController < AdminController
     end
 
     def admin_photo_params
-      params.require(:admin_photo).permit(:name, :user_id, :img, :album_id, :img_cache)
+      params.require(:photos)
     end
 end

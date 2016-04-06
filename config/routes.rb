@@ -15,15 +15,18 @@ Rails.application.routes.draw do
     resources :users,only:[:index,:edit,:update,:show]
     get 'repassword' => 'users#repassword'
     post 'repassword' => 'users#update_password'
-
     get 'upload/:name' => 'albums#upload_photo'
     get 'upload_online/:name' => 'albums#upload_photo_online'
+    
     post 'uploading_online/:name' => 'albums#uploading_photo_online'
-    post 'upload' => 'albums#uploading_photo'
+    post 'upload/:name' => 'albums#uploading_photo'
 
     post 'remove_photo/:album/:photo' => 'albums#remove'
     resources :albums
+    get 'photos/upload_process' => 'photos#upload_process'
     resources :photos
+    post 'photos/upload' => 'photos#upload'
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

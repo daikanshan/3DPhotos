@@ -12,4 +12,13 @@ $(document).ready(function(){
       $(".login_menu").delay(200).slideUp("fast");
     })
   })
+
+
+  // source = new EventSource("/admin/photos/upload_process");
+  // console.log(source)
+  // source.addEventListener('update', function(event){
+  //   // update a div, reload a section of the page
+  //   console.log(event);
+  //   $('#progress_show').css("width", event.data);
+  // };
 })

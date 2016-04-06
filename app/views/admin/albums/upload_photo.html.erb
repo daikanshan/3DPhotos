@@ -1,14 +1,11 @@
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active" > <%= link_to "从本地上传" ,admin_upload_path+"/"+@admin_album.name %></li>
+  <li role="presentation" class="active" > <%= link_to "从本地上传" ,"/admin/upload/#{@admin_album.name}" %></li>
   <li role="presentation" > <%= link_to "从相片库上传" ,"/admin/upload_online/"+@admin_album.name  %></li>
 </ul>
-<%= form_for @admin_photo, url:admin_upload_path do |f| %>
+<%= form_for @admin_photo, url:"/admin/upload/#{@admin_album.name}",html:{enctype:"multipart/form-data"} do |f| %>
   <%= form_errors @admin_photo %>
   <div class="form-group">
-    <%= f.label "上传图片" %>
-    <%= image_tag(@admin_photo.img_url(:thumb)) if @admin_photo.img? %>
-    <%= f.file_field :img %>
-    <%= f.hidden_field :img_cache %>
+    <input type="file" name="photos[]" id="uploadImags" multiple="multiple" />
   </div>
 
   <div class="type">

@@ -19,6 +19,12 @@ nav:
     controllers: photos
     actions: index,new,edit,show
   -
+    text: effect
+    icon: th-list
+    path: effects/index
+    controllers: effects
+    actions: index,new,edit,show
+  -
     text: 账户
     icon: user
     path: users/index

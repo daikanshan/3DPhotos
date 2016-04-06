@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :effects
+  end
   root 'home/home#index'
   scope :home do
   get '/' => 'home/home#index'

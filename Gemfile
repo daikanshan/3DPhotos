@@ -36,8 +36,7 @@ gem 'bootstrap-sass'
 gem 'vuejs-rails'
 # momentJS
 gem 'momentjs-rails'
-# Use haml view templates
-gem 'haml'
+
 # 用于抹平浏览器间的部分兼容性问题
 gem "autoprefixer-rails"
 

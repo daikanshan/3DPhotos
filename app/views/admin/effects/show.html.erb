@@ -9,5 +9,4 @@ table_img_medium[<%= i %>] = "<%= @photos[i%max].img_url(:thumb) %>"
 table_img[<%= i %>] = "<%= @photos[i%max].img_url %>"
 <% end %>
 </script>
-
-<%= javascript_include_tag 'home/texiao/ring' %>
+<%= render "related/texiao/#{@admin_effect.name}" %>

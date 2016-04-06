@@ -13,6 +13,11 @@
     <%= f.hidden_field :cover_cache %>
   </div>
 
+  <div class="form-group">
+    <%= f.label "modelType" %><br>
+    <%= f.select :model_type, "<option value='yuansu'>yuansu</option><option value='ring'>ring</option>".html_safe ,class:"form-control"%>
+  </div>
+
   <div class="form-group action">
     <%= link_to '取消', admin_albums_path,class:"btn btn-default cancle" %>
     <%= f.submit class:"btn btn-primary submit",id:"submit" %>

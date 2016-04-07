@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :effects
+    resources :categories
   end
   root 'home/home#index'
+  get '/u/:name' => 'home/user#index'
+  
   scope :home do
   get '/' => 'home/home#index'
   get '/:username/:albumname' => 'home/home#show'
+  
   end
 
   namespace :admin do
@@ -29,6 +32,7 @@ Rails.application.routes.draw do
     get 'photos/upload_process' => 'photos#upload_process'
     resources :photos
     post 'photos/upload' => 'photos#upload'
+    resources :effects
 
   end
 

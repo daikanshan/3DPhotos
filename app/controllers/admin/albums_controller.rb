@@ -1,5 +1,6 @@
 class Admin::AlbumsController < AdminController
   before_action :set_admin_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_needed_info, only: [:new, :edit, :create, :update]
 
   # GET /admin/albums
   # GET /admin/albums.json
@@ -73,6 +74,7 @@ class Admin::AlbumsController < AdminController
 
   # GET /admin/albums/1/edit
   def edit
+    
   end
 
   # POST /admin/albums
@@ -121,10 +123,13 @@ class Admin::AlbumsController < AdminController
     def set_admin_album
       @admin_album = Admin::Album.find(params[:id])
     end
-
+    def set_needed_info
+      @effects = Admin::Effect.all
+      @categories = Admin::Category.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_album_params
-      params.require(:admin_album).permit(:name, :user_id, :cover, :cover_cache)
+      params.require(:admin_album).permit(:name, :user_id, :cover, :cover_cache, :effect_id, :category_id)
     end
 
     def admin_photo_params

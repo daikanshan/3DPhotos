@@ -1,13 +1,173 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- */
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+$primary-color: #f7f6f2;
+$icon-color:green;
+body{
+  background-color: #F3F6F7;
+  a{
+    text-decoration:none;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  h1{
+    font-size: 30px;
+  }
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+}
+#header{
+  nav#nav-top{
+    z-index: 99;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background-color: #eee;
+    border-bottom: 1px solid #dddddd;
+    height:60px;
+    #logo{
+      z-index: 100;
+      cursor: pointer;
+      left:10px;
+      top:10px;
+      position: absolute;
+      img{
+        height:40px;
+        width:50px;
+      }
+    }
+    #search{
+      z-index: 100;
+      left:100px;
+      position: absolute;
+      width:auto;
+      height:60px;
+      //line-height: 60px;
+      padding-top: 15px;
+      padding-left: 10px;
+      form{
+        input{
+          border: 1px solid #CCCCCC;
+          border-radius: 5px;
+          width:180px;
+          height:30px;
+          padding-left: 10px;
+          background-color: #f8f8f8;
+          transition:width 0.5s;
+          -moz-transition:width 0.5s; /* Firefox 4 */
+          -webkit-transition:width 0.5s; /* Safari and Chrome */
+          -o-transition:width 0.5s; /* Opera */
+          &:focus{
+            width:300px;
+          }
+        }
+      }
+    }
+    #admin{
+      position: relative;
+      width:auto;
+      height:60px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 60px;
+      a{
+        color:black;
+        &:hover .glyphicon-name{
+          font-weight: bold;
+        }
+        span{
+          color: $icon-color;
+          display: inline-block;
+          padding-left: 20px;
+        }
+
+      }
+
+    }
+
+    #menu-login{
+      z-index: 100;
+      position: absolute;
+      right:15px;
+      top:12px;
+      cursor: pointer;
+      span{
+        font-size: 30px;
+        color:green;
+      }
+      &:hover{
+
+      }
+    }
+  }
+}
+
+#bodyer{
+  padding-top:60px;
+  .pagination-wrap{
+    float:left;
+    margin: 50px 0 0 0;
+    width:100%;
+    height:30px;
+    text-align: center;
+    .pagination{
+      position: relative;
+      margin:0px;
+      a{
+        color:#929494;
+      }
+      span{
+        text-align: center;
+      }
+      .page{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: #EEEEEE;
+        font-size: 20px;
+      }
+      .current{
+        font-weight: bold;
+        background-color: green;
+      }
+      .prev,.next,.first,.last{
+        display: inline-block;
+        width: auto;
+        height: 30px;
+        padding:0 5px;
+        background-color: #EEEEEE;
+        line-height: 30px;
+        font-size: 18px;
+      }
+    }
+  }
+
+}
+#footer{
+  position: relative;
+  border-top: 1px solid #dddddd;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height:60px;
+  background-color: #eee;
+  color:#90A1AC;
+  font-size: 20px;
+  text-align: center;
+  a,a:hover{
+    font-size: 16px;
+    text-decoration: none;
+    color:#90A1AC;
+  }
+  span{
+    // display: block;
+    // padding-top: 12px;
+  }
+}

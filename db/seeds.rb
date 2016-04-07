@@ -9,3 +9,8 @@ effects = ["yuansu","ring"]
 effects.each do |e|
   Admin::Effect.find_by_name(e)||Admin::Effect.create(name:e)
 end
+
+categories = {'人物':'user', '景物':'leaf', '运动':'road', '创意':'apple'}
+categories.each do |k,v|
+	Admin::Category.find_by_name(k)||Admin::Category.create(name:k,glyphicon:v)
+end

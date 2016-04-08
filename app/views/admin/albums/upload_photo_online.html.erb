@@ -11,7 +11,7 @@
       <div class="outer">
         <li class="choose_photos">
           <%= check_box_tag "target[]", p.id, false, class: "p_checkbox hidden"%>
-          <%= image_tag p.img_url(:medium) %>
+          <%= image_tag p.img_url(:medium),class:"image_tag" %>
         </li>
       </div>
     <% end %>

@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag  "home/texiao/#{@admin_effect.name}" %>
+<%= render "related/texiao/#{@admin_effect.name}" %>
+<script>
+var table_img_large = [];
+var table_img_medium = [];
+var table_img = [];
+<% max = @photos.count %>
+<% for i in 0..max-1 do %>
+table_img_large[<%= i %>] = "<%= @photos[i%max].img_url(:medium) %>"
+table_img_medium[<%= i %>] = "<%= @photos[i%max].img_url(:thumb) %>"
+table_img[<%= i %>] = "<%= @photos[i%max].img_url %>"
+<% end %>
+</script>
+
+<%= javascript_include_tag "home/texiao/#{@admin_effect.name}" %>

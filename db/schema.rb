@@ -11,12 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404061124) do
+ActiveRecord::Schema.define(version: 20160407122108) do
 
   create_table "admin_albums", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.integer  "user_id",     limit: 4
+    t.string   "cover",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "model_type",  limit: 255
+    t.integer  "effect_id",   limit: 4
+    t.integer  "category_id", limit: 4
+  end
+
+  create_table "admin_categories", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.integer  "user_id",    limit: 4
-    t.string   "cover",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "glyphicon",  limit: 255
+  end
+
+  create_table "admin_effects", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

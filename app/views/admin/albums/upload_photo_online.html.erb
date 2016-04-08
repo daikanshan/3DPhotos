@@ -1,15 +1,17 @@
 <ul class="nav nav-tabs">
-  <li role="presentation"> <%= link_to "从本地上传" ,admin_upload_path+"/"+@admin_album.name %></li>
+  <li role="presentation"> <%= link_to "从本地上传" ,"/admin/upload/#{@admin_album.name}" %></li>
   <li role="presentation" class="active" > <%= link_to "从相片库上传" ,"/admin/upload_online/"+@admin_album.name  %></li>
 </ul>
-<% if !@admin_photos.nil? %>
+
+<% if !@admin_photos.nil? && @admin_photos.length > 0  %>
   <%= form_tag "/admin/uploading_online/#{@admin_album.name}" do %>
   <ul class="choose_online">
     <% @admin_photos.each do |p| %>
+      <% p %>
       <div class="outer">
         <li class="choose_photos">
           <%= check_box_tag "target[]", p.id, false, class: "p_checkbox hidden"%>
-          <%= image_tag p.img_url(:thumb) %>
+          <%= image_tag p.img_url(:medium) %>
         </li>
       </div>
     <% end %>

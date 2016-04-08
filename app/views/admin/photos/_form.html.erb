@@ -1,16 +1,14 @@
-<%= form_for @admin_photo ,html:{enctype:"multipart/form-data"} do |f| %>
+<%= form_tag admin_photos_upload_path , multipart: true,target:"uploadFram" do %>
+  <iframe name="uploadFrame" src="" style="display: none;"></iframe>
   <%= form_errors @admin_photo %>
+
   <div class="form-group">
     <input type="file" name="admin_photo_imgs[]" id="uploadImags" multiple="multiple" />
   </div>
 
-  <!-- <div class="type">
-    <%= select_tag :album_id,options_for_select(@all_albums),include_blank: "选择相册" %>
-  </div> -->
-
+  
   <div class="form-group action">
     <%= link_to '取消', admin_photos_path,class:"btn btn-default cancle" %>
     <%= submit_tag 'upload', class:"btn btn-primary submit",id:"submit" %>
   </div>
-
 <% end %>

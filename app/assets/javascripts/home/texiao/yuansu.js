@@ -129,8 +129,8 @@ var controls;
 var objects = [];
 var targets = { table: [], sphere: [], helix: [], grid: [] };
 
-init();
-animate();
+
+
 
 function init() {
 
@@ -150,8 +150,8 @@ function init() {
 		var symbol = document.createElement( 'div' );
 		var img = document.createElement('img');
 		// img.src = "./img/"+(i/5%15)+".jpg";
-		img.src = table_img[i/5];
-    img.value = i;
+		img.src = table_img[(i/5)%table_img.length];
+    	img.value = i;
 		symbol.className = 'symbol';
 		symbol.appendChild(img);
 		element.appendChild( symbol );
@@ -161,8 +161,8 @@ function init() {
 			var image=new Image();
 			show_img_div = document.createElement( 'div' );
 			var show_img = document.createElement('img');
-			show_img.src = table_img[this.value/5];
-			image.src = table_img[this.value/5];
+			show_img.src = table_img[(this.value/5)%table_img.length];
+			image.src = table_img[(this.value/5)%table_img.length];
 			var imgWidth=image.width;
 			var imgHeight=image.height;
 			show_img_div.appendChild(show_img);
@@ -306,6 +306,7 @@ function init() {
 	//
 
 	window.addEventListener( 'resize', onWindowResize, false );
+	animate();
 
 }
 
@@ -363,3 +364,4 @@ function render() {
 	renderer.render( scene, camera );
 
 }
+window.onload = init;

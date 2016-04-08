@@ -1,7 +1,7 @@
 class Home::HomeController < HomeController
   layout false,only:[:show]
   def index
-    @albums = Admin::Album.all
+    @albums = Admin::Album.all.order("created_at DESC")
   end
 
   def show

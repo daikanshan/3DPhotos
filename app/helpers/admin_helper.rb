@@ -7,6 +7,7 @@ module AdminHelper
   end
   # 表单提交错误信息帮助方法
   def form_errors(var)
+    return if var.nil? 
     if var.errors.any?
       str=<<STR
     <div class="alert alert-block alert-danger">

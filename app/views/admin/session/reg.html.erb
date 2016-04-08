@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>用户登录</title>
+  <title>用户注册</title>
   <%= stylesheet_link_tag    'admin/session', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
@@ -18,34 +18,27 @@
   <div class="login_outer">
     <div class="login_panel">
       <div class="title">
-        <span>用户登录</span>
+        <span>用户注册</span>
       </div>
       <div class="content">
-        <%= form_tag admin_login_path,method: :post do %>
+        <%= form_tag admin_regist_path,method: :post do %>
+        <%= form_errors @user %>
             <div class="form-item">
               <%= text_field_tag :name,'', class:"form-input", placeholder:"请输入用户名" %>
             </div>
             <div class="form-item">
-              <%= password_field_tag :password ,'', class:"form-input", placeholder:"请输入密码" %>
+              <%= password_field_tag :password ,'', class:"form-input", placeholder:"请输入密码"  %>
             </div>
-
-            <% if @show_vcode %>
-            <div class="form-item vcode">
-  
-                <div class="vcode-item vcode-img"><%= image_tag admin_vcode_path(format: :png),id:"vcode",onclick:"this.src=\"#{admin_vcode_url(format: :png)}?rand=\"+Math.random()" %></div>
-                <div class="vcode-item"><%= text_field_tag :vcode, '',class: 'form-input form-vcode' %></div>
-                <div style="clear: both;"></div>
-            
-            </div>     
-
-            <% end %>
             <div class="form-item">
-                  <%= submit_tag "登录",class:"form-submit" %>
+              <%= password_field_tag :password_confirmation ,'', class:"form-input", placeholder:"请确认密码"  %>
             </div>
-            <div class="register">
-              <%= link_to '还没有账户，马上注册',admin_regist_path %>
+            <div class="form-item">
+              <%= submit_tag "注册",class:"form-submit" %>
             </div>
         <% end %>
+        <div class="register">
+          <%= link_to '已有账户，马上登录',admin_login_path %>
+        </div>
       </div>
     </div>
 </div>

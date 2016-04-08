@@ -35,7 +35,11 @@
   
     <div id="menu-login">
       <%= link_to admin_logout_path,method: :delete do %>
-          <%= image_tag(@login_user.avatar_url(:thumb)) if @login_user.avatar? %>
+          <% if @login_user.avatar? %>
+          <%= image_tag(@login_user.avatar_url(:thumb)) %>
+          <% else %>
+          <%= image_tag '/assets/logo.png'%>
+          <% end %>
           <i class="glyphicon glyphicon-chevron-down"></i>
       <% end %>
     </div>

@@ -1,18 +1,12 @@
 class AdminController < ApplicationController
-  before_action :build_admin_cache
   before_action :check_login
   before_action :set_nav
-
   private
   def check_login
     @login_user = Admin::User.find_by_id(session[:user_id])
     if @login_user.nil?
       redirect_to admin_login_url
     end
-  end
-
-  def build_admin_cache
-    # @cache = Cache.new("admin-")
   end
 
   def set_nav
@@ -33,4 +27,5 @@ class AdminController < ApplicationController
       @navs = result
     # end
   end
+
 end

@@ -7,4 +7,5 @@ class HomeController < ApplicationController
 	def set_login_user
     	@login_user = Admin::User.find_by_id(session[:user_id]) if session[:user_id]
   	end
+  	
 end

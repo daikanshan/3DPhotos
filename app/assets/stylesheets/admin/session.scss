@@ -9,10 +9,11 @@ body{
 }
 .login_panel{
   width:480px;
-  height:350px;
+  height:auto;
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 20px;
   text-align: center;
   background-color: white;
   border: 1px solid white;
@@ -31,6 +32,19 @@ body{
     border-radius: 5px;
     padding-left: 15px;
     font-size: 20px
+  }
+  .vcode{
+    margin-left: 40px;
+  }
+  .vcode-item{
+    float:left;
+  }
+  .vcode-img{
+    width:20%;
+  }
+  .form-vcode{
+    margin-left: 50px;
+    width:80%;
   }
   .form-submit{
     width:400px;

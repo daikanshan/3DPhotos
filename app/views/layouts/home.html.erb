@@ -23,13 +23,7 @@
       <% end %>
     </div>
     <div id="search">
-      <%= form_tag '/search' do %>
-        <div class="">
-          <!-- <input type="text" class="" placeholder="Search..."> -->
-          <%= text_field_tag :keywords ,nil,class:"", placeholder:"Search..." %>
-        </div>
-        <button type="submit" class="hidden">Submit</button>
-      <% end %>
+      
     </div>
     <div id="admin">
       <% @all_categories.each do |t| %>

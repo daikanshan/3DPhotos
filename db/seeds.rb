@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-effects = ["yuansu","ring"]
+effects = ["yuansu","ring","gallary"]
 effects.each do |e|
   Admin::Effect.find_by_name(e)||Admin::Effect.create(name:e)
 end

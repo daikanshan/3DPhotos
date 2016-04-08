@@ -84,7 +84,7 @@ class Admin::AlbumsController < AdminController
     @admin_album.user_id = @login_user.id
     respond_to do |format|
       if @admin_album.save
-        format.html { redirect_to @admin_album, notice: 'Album was successfully created.' }
+        format.html { redirect_to @admin_album, notice: '相册已经创建成功，快去给它添加相片吧～' }
         format.json { render :show, status: :created, location: @admin_album }
       else
         format.html { render :new }
@@ -98,7 +98,7 @@ class Admin::AlbumsController < AdminController
   def update
     respond_to do |format|
       if @admin_album.update(admin_album_params)
-        format.html { redirect_to @admin_album, notice: 'Album was successfully updated.' }
+        format.html { redirect_to admin_albums_url, notice: '已更新.' }
         format.json { render :show, status: :ok, location: @admin_album }
       else
         format.html { render :edit }
@@ -112,7 +112,7 @@ class Admin::AlbumsController < AdminController
   def destroy
     @admin_album.destroy
     respond_to do |format|
-      format.html { redirect_to admin_albums_url, notice: 'Album was successfully destroyed.' }
+      format.html { redirect_to admin_albums_url, notice: '已删除.' }
       format.json { head :no_content }
     end
   end

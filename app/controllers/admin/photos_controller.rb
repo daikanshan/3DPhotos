@@ -48,9 +48,10 @@ class Admin::PhotosController < AdminController
     admin_photo_params.each do |p|
       admin_photo = Admin::Photo.new(img:p,user_id:user_id)
       if !admin_photo.save
-        @errors << admin_photo.errors
+        @errors << admin_photo
       end
     end
+
     render :result
   end
 

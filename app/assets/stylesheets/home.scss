@@ -22,6 +22,24 @@ body{
     padding:0;
   }
 }
+#uploadInput{
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+  width: 58px;
+  height: 58px;
+
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter:alpha(opacity=0);
+  -moz-opacity:0;
+  -khtml-opacity: 0;
+  opacity:0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 #header{
   nav#nav-top{
     z-index: 99;
@@ -111,6 +129,7 @@ body{
 
 #bodyer{
   padding-top:60px;
+  
   .pagination-wrap{
     float:left;
     margin: 50px 0 0 0;

@@ -1,2 +1,11 @@
-<h1>Admin::Home#index</h1>
-<p>Find me in app/views/admin/home/index.html.erb</p>
+<div class="home-info">
+欢迎来到3D相册管理平台，在该平台您可以<br>
+<ul>
+	<li><%= link_to '上传照片', new_admin_photo_path %>到相片库</li>
+	<li>为您的相片<%= link_to '创建相册', new_admin_album_path %>,同时将其打造成3D展示相册集</li>
+	<li>在设置相册之前您可以预览该平台提供的<%= link_to '3D展示特效', admin_effects_path %>，为您的相册搭配最好的展示效果</li>
+</ul>
+
+
+
+</div>

@@ -7,9 +7,9 @@ $(document).ready(function(){
       checkbox = $(that).find("input")[0];
       // console.log(checkbox.checked);
       if(checkbox.checked==false){
-        $(that).css("border" , "2px solid #A0A");
+        $(that).css("border" , "2px solid blue");
       }else{
-        $(that).css("border" , "1px solid #AAA");
+        $(that).css("border" , "2px solid #AAA");
       }
       checkbox.checked = !checkbox.checked
     })

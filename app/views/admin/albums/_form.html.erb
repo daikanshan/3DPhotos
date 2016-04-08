@@ -7,10 +7,14 @@
   </div>
 
   <div class="form-group">
-    <%= f.label "封面" %>
-    <%= image_tag(@admin_album.cover_url(:thumb)) if @admin_album.cover? %>
-    <%= f.file_field :cover %>
-    <%= f.hidden_field :cover_cache %>
+  <%= f.label "封面" %>
+  <div class="upload-div">
+     <%= f.file_field :cover,class:"uploadInput" %>
+     <div class="uploadShow">
+      <span class="glyphicon glyphicon-plus"></span>
+      <i>从本地选择要上传的相片</i>
+     </div>
+  </div>
   </div>
 
   <div class="form-group">

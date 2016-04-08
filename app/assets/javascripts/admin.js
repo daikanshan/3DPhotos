@@ -13,7 +13,26 @@ $(document).ready(function(){
     })
   })
 
+  $('.waiting').click(function(){
+    waiting_div = document.createElement('div');
+    waiting_img = document.createElement('img');
+    waiting_img.src = '/assets/loading.gif';
 
+    waiting_div.style.position = 'absolute';
+    waiting_div.style.top = '0px';
+    waiting_div.style.right = '0px';
+    waiting_div.style.bottom = '0px';
+    waiting_div.style.left = '0px';
+    waiting_div.style.zIndex = '9999';
+    waiting_div.style.backgroudColor = '#CCC';
+    waiting_div.style.textAlign = 'center';
+
+    waiting_img.style.marginTop = "20%"
+
+    waiting_div.appendChild(waiting_img);
+    document.body.appendChild(waiting_div);
+    
+  })
   // source = new EventSource("/admin/photos/upload_process");
   // console.log(source)
   // source.addEventListener('update', function(event){

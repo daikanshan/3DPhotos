@@ -5,6 +5,7 @@ class Admin::Album < ActiveRecord::Base
   has_many :photos
   mount_uploader :cover, Admin::AlbumCoverUploader
 
+  validates :name, presence: true
   validates :cover, presence: true
   before_destroy :reset_photos
 

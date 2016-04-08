@@ -7,8 +7,15 @@
 <%= form_for @admin_photo, url:"/admin/upload/#{@admin_album.name}",html:{enctype:"multipart/form-data"} do |f| %>
   <%= form_errors @admin_photo %>
   <div class="form-group">
-    <input type="file" name="photos[]" id="uploadImags" multiple="multiple" />
+  <div class="upload-div">
+     <input type="file" name="photos[]" class="uploadInput" multiple="multiple" />
+     <div class="uploadShow">
+      <span class="glyphicon glyphicon-plus"></span>
+      <i>从本地选择要上传的相片</i>
+     </div>
   </div>
+  </div>
+  
 
   <div class="type">
     <%= f.hidden_field :album_id,value:@admin_album.id %>
@@ -16,7 +23,7 @@
 
   <div class="form-group action">
     <%= link_to '取消', admin_photos_path,class:"btn btn-default cancle" %>
-    <%= f.submit class:"btn btn-primary submit",id:"submit" %>
+    <%= f.submit '上传', class:"btn btn-primary submit waiting",id:"submit" %>
   </div>
 
 <% end %>

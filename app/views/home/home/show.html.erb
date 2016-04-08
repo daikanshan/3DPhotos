@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <title>Elements</title>
-<%= stylesheet_link_tag  "home/texiao/#{@album.effect.name}" %>
+<%= stylesheet_link_tag  "home/texiao/gallary" %>
 </head>
 <body>
-<%= render "related/texiao/#{@album.effect.name}" %>
+<%= render "related/texiao/gallary" %>
 <script>
 var table_img_large = [];
 var table_img_medium = [];
@@ -20,6 +20,6 @@ table_img[<%= i %>] = "<%= @photos[i%max].img_url %>"
 <% end %>
 </script>
 
-<%= javascript_include_tag "home/texiao/#{@album.effect.name}" %>
+<%= javascript_include_tag "home/texiao/gallary" %>
 </body>
 </html>

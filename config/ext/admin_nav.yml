@@ -11,16 +11,16 @@ nav:
     icon: th-large
     path: albums/index
     controllers: albums
-    actions: index,new,edit,show
+    actions: index,new,edit,show,upload_photo,upload_photo_online,result
   -
     text: 相片
     icon: th-list
     path: photos/index
     controllers: photos
-    actions: index,new,edit,show
+    actions: index,new,edit,show,result
   -
-    text: effect
-    icon: th-list
+    text: 特效
+    icon: star
     path: effects/index
     controllers: effects
     actions: index,new,edit,show

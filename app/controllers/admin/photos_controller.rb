@@ -45,11 +45,18 @@ class Admin::PhotosController < AdminController
   def upload
     @errors = []
     user_id = @login_user.id
-    admin_photo_params.each do |p|
-      admin_photo = Admin::Photo.new(img:p,user_id:user_id)
-      if !admin_photo.save
-        @errors << admin_photo
+    if !params["admin_photo_imgs"].nil?
+      params["admin_photo_imgs"].each do |p|
+        admin_photo = Admin::Photo.new(img:p,user_id:user_id)
+        if !admin_photo.save
+          @errors << admin_photo
+        end
       end
+    else
+      @admin_photo = Admin::Photo.new
+      @admin_photo.save
+      render :new
+      return
     end
 
     render :result
@@ -92,7 +99,5 @@ class Admin::PhotosController < AdminController
       all_albums.each {|t| @all_albums << [t.name,t.id]}
     end
     # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_photo_params
-      params.require(:admin_photo_imgs)
-    end
+   
 end

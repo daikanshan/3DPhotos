@@ -5,7 +5,6 @@
       <%= image_tag(admin_photo.img_url(:medium)) if admin_photo.img? %>
     </div>
     <div class="info">
-      <%= link_to "查看",admin_photo,method: :get ,class:"del btn btn-inline btn-info" %>
       <%= link_to "删除",admin_photo, method: :delete,data: { confirm: '确定?' },class:"del btn btn-inline btn-danger" %>
     </div>
   </div>

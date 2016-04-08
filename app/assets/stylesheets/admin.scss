@@ -21,6 +21,56 @@ body{
     padding:0;
   }
 }
+$fileUploadWidth : 300px;
+$fileUploadHeight : 70px;
+
+.upload-div{
+  position: relative;
+  margin: 7px 20px 0 0;
+  width:$fileUploadWidth;
+  height:$fileUploadHeight;
+  overflow: hidden;
+  cursor: pointer;
+  background-color:#FFF;
+  border:1px solid #CCC;
+  border-radius:10px;
+  .uploadInput{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+    width:$fileUploadWidth;
+    height:$fileUploadHeight;
+
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity:0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .uploadShow{
+    padding:10px;
+    text-align: center;
+    float: left;
+    width:$fileUploadWidth;
+    height:$fileUploadHeight;
+    span{
+      float: left;
+      display: block;
+      font-size: 50px;
+    }
+    i{
+      display: block;
+      float:left;
+      font-size: 20px;
+      line-height: 50px;
+    }
+  }
+}
 #header{
   nav#nav-top{
     position:fixed;

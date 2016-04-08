@@ -1,3 +1,7 @@
-<% @errors.each do |r| %>
-	<%= form_errors r %>
+<% if @errors.empty? %>
+	上传成功！
+<% else %>
+	<% @errors.each do |r| %>
+		<%= form_errors r %>
+	<% end %>
 <% end %>

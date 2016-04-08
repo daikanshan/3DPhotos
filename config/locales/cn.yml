@@ -41,11 +41,13 @@ cn:
     attributes:
       admin/album:
         name: '相册名'
+        cover: '封面'
       admin/user:
         name: '用户名'
         password: '密码'
       admin/photo:
         name: '相片'
+        img: '文件'
       admin/category:
         name: '类别'
       admin/effect:

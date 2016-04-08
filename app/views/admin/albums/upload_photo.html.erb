@@ -2,6 +2,8 @@
   <li role="presentation" class="active" > <%= link_to "从本地上传" ,"/admin/upload/#{@admin_album.name}" %></li>
   <li role="presentation" > <%= link_to "从相片库上传" ,"/admin/upload_online/"+@admin_album.name  %></li>
 </ul>
+
+
 <%= form_for @admin_photo, url:"/admin/upload/#{@admin_album.name}",html:{enctype:"multipart/form-data"} do |f| %>
   <%= form_errors @admin_photo %>
   <div class="form-group">

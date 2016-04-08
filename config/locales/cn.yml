@@ -32,34 +32,25 @@ cn:
     confirm_delete: 确认删除吗？
   activerecord:
     models:
-      index/student: 学生
-      manage/student: 学生
+      admin/album: '相册'
+      admin/photo: '相片'
+      admin/user: '用户'
+      admin/category: '类别'
+      admin/effect: '特效'
 
     attributes:
-      index/student:
-        num: 学号
-        name: 姓名
-        password: 密码
-        password_confirmation: ""
-        desc: 描述
-        skills: 技能
-      manage/admin:
-        user_name: '用户名'
-        real_name: '真实姓名'
+      admin/album:
+        name: '相册名'
+      admin/user:
+        name: '用户名'
         password: '密码'
-      manage/post:
-        title: '标题'
-        content: '内容'
-        is_top: '是否置顶'
-        is_hide: '是否隐藏'
-        valid_from: '通过时间'
-        created_at: '创建时间'
-        updated_at: '最后修改时间'
-      manage/student:
-        num: 学号
-        name: 姓名
-        password: 密码
-        password_confirmation: ''
+      admin/photo:
+        name: '相片'
+      admin/category:
+        name: '类别'
+      admin/effect:
+        name: '特效'
+      
 
 
     errors:
@@ -79,7 +70,10 @@ cn:
         greater_than_or_equal_to: "应当大于或等于%{count}"
         inclusion: "不是一个有效的值"
         not_an_integer: "不是一个整数"
-
+        
+  errors:
+    messages:
+      extension_white_list_error: "请上传'.jpg .png .gif'格式的文件"
   views:
     pagination:
       first: "&laquo; 首页"

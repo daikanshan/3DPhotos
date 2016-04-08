@@ -28,13 +28,11 @@
     </div>
 
     <div id="menu-add">
-      <a href=<%= '/' %>>
+      <a href=<%= new_admin_photo_path %>>
         <i class="glyphicon glyphicon-plus"></i>
       </a>
     </div>
-    <div id="menu-message">
-      <i class="glyphicon glyphicon-envelope"></i>
-    </div>
+  
     <div id="menu-login">
       <%= link_to admin_logout_path,method: :delete do %>
           <%= image_tag(@login_user.avatar_url(:thumb)) if @login_user.avatar? %>

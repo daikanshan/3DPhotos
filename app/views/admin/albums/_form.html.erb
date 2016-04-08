@@ -14,12 +14,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label "category" %><br>
+    <%= f.label "相册类别" %><br>
     <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name"),class:"form-control"%>
   </div>
 
   <div class="form-group">
-    <%= f.label "modelType" %><br>
+    <%= f.label "选择特效" %><br>
     <%= f.select :effect_id, options_from_collection_for_select(@effects, "id", "name"),class:"form-control"%>
   </div>
 

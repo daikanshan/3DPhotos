@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   root 'home/home#index'
   get '/u/:name' => 'home/user#index'
-  
+  get '/album-type/:albumname' => 'home/home#category'
   scope :home do
   get '/' => 'home/home#index'
   get '/:username/:albumname' => 'home/home#show'

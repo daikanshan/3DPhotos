@@ -6,13 +6,12 @@
     <% if group%2==0 %>
     <div class="ss-row ss-medium">
       <div class="ss-left">
-              <!--数据库取出的图片放在url()内-->
-        <a href="<%= "/home/#{a.user.name}/#{a.name}" %>" class="ss-circle" style="background-image:url(<%= a.cover_url(:medium) %>) ">Typography Effects with CSS3 and jQuery</a>
+        <a href="<%= "/home/#{a.user.name}/#{a.name}" %>" class="ss-circle" style="background-image:url(<%= a.cover_url %>) "></a>
       </div>
       <div class="ss-right">
         <h3>
-          <span>November 28, 2011</span>
-          <a href="#">Typography Effects with CSS3 and jQuery</a>
+          <span><%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %></span>
+          <a href="<%= "/u/#{a.user.name}" %>"><%= a.user.name %></a>
         </h3>
       </div>
     </div>
@@ -20,25 +19,14 @@
     <div class="ss-row ss-large">
       <div class="ss-left">
         <h3>
-          <span>November 22, 2011</span>
-          <a href="#">Hover and Click Trigger for Circular Elements with jQuery</a>
+          <span><%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %></span>
+          <a href="<%= "/u/#{a.user.name}" %>"><%= a.user.name %></a>
         </h3>
       </div>
       <div class="ss-right">
-        <a href="<%= "/home/#{a.user.name}/#{a.name}" %>" class="ss-circle" style="background-image:url(<%= a.cover_url(:medium) %>)">Hover and Click Trigger for Circular Elements with jQuery</a>
+        <a href="<%= "/home/#{a.user.name}/#{a.name}" %>" class="ss-circle" style="background-image:url(<%= a.cover_url %>)">Hover and Click Trigger for Circular Elements with jQuery</a>
       </div>
     </div>
     <% end %>
-  <!-- <div class="ss-row ss-small">
-    <div class="ss-left">
-      <a href="#" class="ss-circle" style="background-image: url(/assets/images/1.jpg)">Elastic Image Slideshow with Thumbnail Preview</a>
-    </div>
-    <div class="ss-right">
-      <h3>
-        <span>November 21, 2011</span>
-        <a href="#">Elastic Image Slideshow with Thumbnail Preview</a>
-      </h3>
-    </div>
-  </div> -->
   <% end %>
 </div>

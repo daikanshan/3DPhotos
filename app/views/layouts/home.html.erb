@@ -27,7 +27,7 @@
     </div>
     <div id="admin">
       <% @all_categories.each do |t| %>
-          <%= link_to "/article-type/#{t.name}" do %>
+          <%= link_to "/album-type/#{t.name}" do %>
             <span class="glyphicon glyphicon-<%= t.glyphicon %>"></span>
             <i class="glyphicon-name"><%= t.name %></i>
           <% end %>

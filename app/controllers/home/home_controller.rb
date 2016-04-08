@@ -11,4 +11,10 @@ class Home::HomeController < HomeController
     photos = @album.photos if @album
     photos.each {|p| @photos<<p }
   end
+
+  def category
+    category = Admin::Category.find_by_name(params[:albumname])
+    @albums = category.albums if category
+    render :index
+  end
 end

@@ -5,7 +5,7 @@ class Admin::AlbumsController < AdminController
   # GET /admin/albums
   # GET /admin/albums.json
   def index
-    @admin_albums = @login_user.albums
+    @admin_albums = @login_user.albums.order("created_at DESC").page(params[:page]).per(11)
   end
 
   # GET /admin/albums/1

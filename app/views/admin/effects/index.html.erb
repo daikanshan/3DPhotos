@@ -1,4 +1,8 @@
+<ul>
 <% @admin_effects.each do |e| %>
-  <%= e.name %>
-  <%= link_to 'show',e %><br>
+    <li class="effect-li">
+      <%= e.name %>
+      <%= link_to '预览',e %><br>
+  </li>
 <% end %>
+</ul>

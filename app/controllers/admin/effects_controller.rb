@@ -11,7 +11,7 @@ class Admin::EffectsController < AdminController
   # GET /admin/effects/1
   # GET /admin/effects/1.json
   def show
-    @photos = Admin::Photo.all
+    @photos = Admin::Photo.all.limit(6)
     render 'admin/effects/show'
   end
 

@@ -1,6 +1,9 @@
 
 <% @admin_albums.each do |admin_album| %>
   <div class="albums">
+    <div class="album-header">
+      <%= admin_album.name %>
+    </div>
     <div class="img">
       <%= link_to admin_album do %>
       <%= image_tag(admin_album.cover_url(:medium)) if admin_album.cover? %>

@@ -8,7 +8,7 @@ class Admin::PhotosController < AdminController
   # GET /admin/photos
   # GET /admin/photos.json
   def index
-    @admin_photos = @login_user.photos
+    @admin_photos = @login_user.photos.order("created_at DESC").page(params[:page]).per(18)
     # respond_to do |format|
     #   format.json { render :json => @admin_photos.collect { |p| p.to_jq_upload }.to_json }
     # end
